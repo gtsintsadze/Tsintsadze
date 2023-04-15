@@ -14,6 +14,10 @@
     <dataSource name="tsintsadze_minerva_faq_listing_data_source" component="Magento_Ui/js/grid/provider">
         <settings>
             <updateUrl path="mui/index/render"/>
+            <!-- fixed that when filter is reseted only last record was showing multiplyed -->
+            <storageConfig>
+                <param name="indexField" xsi:type="string">id</param>
+            </storageConfig>
         </settings>
         <aclResource>Tsintsadze_Minerva::faq</aclResource>
         <dataProvider name="tsintsadze_minerva_faq_listing_data_source" class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
@@ -23,6 +27,18 @@
             </settings>
         </dataProvider>
     </dataSource>
+    <!-- pagination -->
+    <listingToolbar name="listing_top">
+        <!-- make toolbar sticky -->
+        <settings>
+            <sticky>true</sticky>
+        </settings>
+        <paging name="listing_paging"/>
+        <!-- column controlling -->
+        <columnsControls name="columns_controls"/>
+        <bookmark name="bookmarks"/>
+        <filters name="listing_filters"/>
+    </listingToolbar>
     <columns name="tsintsadze_minerva_faq_columns">
         <settings>
             <childDefaults>
@@ -39,11 +55,19 @@
         <column name="id">
             <settings>
                 <label translate="true">ID</label>
+                <filter>textRange</filter>
             </settings>
         </column>
         <column name="question">
             <settings>
                 <label translate="true">Question</label>
+                <filter>text</filter>
+            </settings>
+        </column>
+        <column name="answer">
+            <settings>
+                <label translate="true">Answer</label>
+                <filter>text</filter>
             </settings>
         </column>
         <column name="is_published" component="Magento_Ui/js/grid/columns/select">
@@ -51,16 +75,20 @@
                 <label translate="true">Is Published</label>
                 <options class="Magento\Config\Model\Config\Source\Yesno"/>
                 <dataType>select</dataType>
+                <sorting>desc</sorting>
+                <filter>select</filter>
             </settings>
         </column>
         <column name="created_at" component="Magento_Ui/js/grid/columns/date">
             <settings>
                 <label translate="true">Created at</label>
+                <filter>dateRange</filter>
             </settings>
         </column>
         <column name="updated_at" component="Magento_Ui/js/grid/columns/date">
             <settings>
                 <label translate="true">Updated at</label>
+                <filter>dateRange</filter>
             </settings>
         </column>
         <actionsColumn name="actions" class="Tsintsadze\Minerva\Ui\Component\Listing\Column\Actions"/>
