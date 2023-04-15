@@ -48,10 +48,16 @@ class Actions extends Column
             }
             $item[$this->getData("name")] = [
                 "edit" => [
-                    "href" => $this->urlBuilder->getUrl("minerva/faq/edit",[
+                    "href" => $this->urlBuilder->getUrl("minerva/faq/edit", [
                         "id" => $item["id"],
                     ]),
                     "label" => __("Edit"),
+                ],
+                "delete" => [
+                    "href" => $this->urlBuilder->getUrl("minerva/faq/delete", [
+                        "id" => $item["id"],
+                    ]),
+                    "label" => __("Delete")
                 ]
             ];
         }
