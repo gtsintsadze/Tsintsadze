@@ -47,6 +47,8 @@
                 </item>
             </argument>
         </filters>
+        <!-- text search after this need to add index in db schema-->
+        <filterSearch name="fulltext"/>
     </listingToolbar>
     <columns name="tsintsadze_minerva_faq_columns">
         <settings>
