@@ -1,0 +1,21 @@
+<?php
+/** @var Message $messageViewModel */
+
+use Tsintsadze\JsReq\ViewModel\Message;
+
+$messageViewModel = $block->getData("message_view_model")
+
+?>
+
+<div id="vue-test">
+    <h1>{{ message }}</h1>
+</div>
+
+<script type="text/x-magento-init">
+    {
+        "#vue-test": {
+            "Tsintsadze_JsReq/js/vue-test":
+            { "message" : "<?= $messageViewModel->getMessage()  ?>" }
+        }
+    }
+</script>
