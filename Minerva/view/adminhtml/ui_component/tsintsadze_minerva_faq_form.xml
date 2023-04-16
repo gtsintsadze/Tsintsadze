@@ -8,6 +8,7 @@
     </argument>
     <settings>
         <buttons>
+            <button name="back" class="Tsintsadze\Minerva\Block\Adminhtml\Faq\Edit\Button\Back"/>
             <button name="save" class="Tsintsadze\Minerva\Block\Adminhtml\Faq\Edit\Button\Save"/>
         </buttons>
         <namespace>tsintsadze_minerva_faq_form</namespace>
