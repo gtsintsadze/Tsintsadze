@@ -5,6 +5,15 @@ define([
 ) {
     "use strict"
 
-    console.log("free shipping ui component is loaded")
-    return Component
+    return Component.extend({
+        defaults : {
+            message: "Free Shipping Message" + "!"
+        },
+        initialize: function () {
+            this._super()
+            console.log(this.message)
+        }
+    })
 })
+
+
